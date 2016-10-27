@@ -1,16 +1,5 @@
 #!/bin/bash
 
-cd /home/zabbix/
-
-CURRENT_VERSION=`uname -r`
-
-id | grep zabbix > /dev/null 2>&1
-RES=$?
-if [[ ! $RES = "0" ]]; then
-        echo "This script must be run as zabbix user!"
-        exit 1
-fi
-
 #Step 1 : download latest from ovh's FTP using same version as the current one
 wget -N ftp://ftp.ovh.net/made-in-ovh/bzImage/latest-production/bzImage-$CURRENT_VERSION > /dev/null 2>&1
 RES=$?
